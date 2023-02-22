@@ -1,0 +1,12 @@
+name: Create File
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu=latest
+    steps:
+      - name: Create File
+        run: |
+          date >> test.txt
+
+      - name: Show file content
+        run: cat test.txt
