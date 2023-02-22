@@ -1,0 +1,15 @@
+name: Create Artifacts
+on: [push]
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Create File
+        run: date >> artifact_sample.txt
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: artifact-file-with-data
+          path: artifact_sample.txt
