@@ -11,6 +11,9 @@ jobs:
       - name: Create File
         run: |
           date >> test.txt
+          git add .
+          git commit -m "add timestamp to test.txt"
+          git push
 
       - name: Show file content
         run: cat test.txt
