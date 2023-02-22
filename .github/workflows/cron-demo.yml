@@ -1,0 +1,15 @@
+name: Cron Demo
+run-name: ${{ github.actor }} is testing out 'Schedule' trigger
+on:
+  schedule:
+    - cron: "*/3 * * * *"
+    - crom: "10 * * * *"
+jobs:
+  test_schedule:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Not on Monday or Wednesday
+        if: github.event.schedule != '10 * * * *'
+        run: echo "This step will be skipped on minute 10"
+      - name: Every time
+        run: echo "This step will always run"
