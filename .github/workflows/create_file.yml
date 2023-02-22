@@ -10,3 +10,7 @@ jobs:
 
       - name: Show file content
         run: cat test.txt
+
+      - name: Show current info
+        run: hostname -I
+        run: ls -al
