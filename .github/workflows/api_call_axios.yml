@@ -1,0 +1,22 @@
+name: API Call with Axios
+
+# **What it does**: This script once a day checks all English links and reports in issues.
+# **Why we have it**: We want to know if any links break.
+# **Who does it impact**: Docs content.
+
+on: [push]
+
+jobs:
+  api_call_with_axios:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo's default branch
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: latest
+          cache: npm
+      - name: npm ci
+        run: npm ci
+      - run: node index.js
