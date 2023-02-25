@@ -5,4 +5,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: GET method test
-        run: ation 'http://54.180.126.55:8080/api/menus'
+        run: curl --location 'http://54.180.126.55:8080/api/menus'
